@@ -1,6 +1,6 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
 # subtitle: Computer Architecture PhD Candidate at Purdue University
 
