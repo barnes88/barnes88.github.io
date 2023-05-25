@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Started working on the Cloud Graphics and Virtual Desktop Infrastructure Team at Intel in Hillsboro Oregon (remote).
+Started working on the Cloud Graphics and Virtual Desktop Infrastructure Team at Intel in Hillsboro, Oregon (remote).
