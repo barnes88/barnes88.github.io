@@ -1,84 +1,34 @@
 ---
 ---
+@INPROCEEDINGS{10070957,
+  author={Barnes, Aaron and Shen, Fangjia and Rogers, Timothy G.},
+  booktitle={2023 IEEE International Symposium on High-Performance Computer Architecture (HPCA)}, 
+  title={Mitigating GPU Core Partitioning Performance Effects}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={530-542},
+  abstract={Modern GPU Streaming Multiprocessors (SMs) have several warp schedulers, execution units, and register file banks. To reduce area and energy-consumption, recent generations divide SMs into sub-cores. Each sub-core contains a distinct warp scheduler, register file, and execution units, sharing L1 memory and scratchpad resources with sub-cores in the same SM. Although partitioning the SM into sub-cores decreases the area and energy demands of larger SMs, it comes at a performance cost. Warps assigned to the SM have access to a fraction of the SM’s resources, resulting in contention and imbalance issues. In this paper, we examine the effect SM sub-division has on performance and propose novel mechanisms to mitigate the negative impacts. We identify four orthogonal effects caused by sub-dividing SMs and demonstrate that two of these effects have a significant impact on performance in practice. Based on these findings, we propose register-bank-aware warp scheduling to avoid bank conflicts that arise when instruction operands are placed in the limited number of register file banks available to each sub-core, and randomly hashed sub-core assignment to mitigate imbalance issues. Our intelligent scheduling mechanisms result in an average 11.2% speedup across a diverse set of applications capturing 81% of the performance lost to SM sub-division.},
+  keywords={},
+  doi={10.1109/HPCA56546.2023.10070957},
+  ISSN={2378-203X},
+  link={https://ieeexplore.ieee.org/document/10070957},
+  pdf={AaronBarnes_HPCA23.pdf},
+  slides={AaronBarnes_HPCA23.pptx},
+  month={Feb},}
 
-@string{aps = {American Physical Society,}}
 
-@book{einstein1956investigations,
-  bibtex_show={true},
-  title={Investigations on the Theory of the Brownian Movement},
-  author={Einstein, Albert},
-  year={1956},
-  publisher={Courier Corporation},
-  preview={brownian-motion.gif}
-}
-
-@article{einstein1950meaning,
-  abbr={AJP},
-  bibtex_show={true},
-  title={The meaning of relativity},
-  author={Einstein, Albert and Taub, AH},
-  journal={American Journal of Physics},
-  volume={18},
-  number={6},
-  pages={403--404},
-  year={1950},
-  publisher={American Association of Physics Teachers}
-}
-
-@article{PhysRev.47.777,
-  abbr={PhysRev},
-  title={Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?},
-  author={Einstein, A. and Podolsky, B. and Rosen, N.},
-  abstract={In a complete theory there is an element corresponding to each element of reality. A sufficient condition for the reality of a physical quantity is the possibility of predicting it with certainty, without disturbing the system. In quantum mechanics in the case of two physical quantities described by non-commuting operators, the knowledge of one precludes the knowledge of the other. Then either (1) the description of reality given by the wave function in quantum mechanics is not complete or (2) these two quantities cannot have simultaneous reality. Consideration of the problem of making predictions concerning a system on the basis of measurements made on another system that had previously interacted with it leads to the result that if (1) is false then (2) is also false. One is thus led to conclude that the description of reality as given by a wave function is not complete.},
-  journal={Phys. Rev.},
-  volume={47},
-  issue={10},
-  pages={777--780},
-  numpages={0},
-  year={1935},
-  month={May},
-  publisher=aps,
-  doi={10.1103/PhysRev.47.777},
-  url={http://link.aps.org/doi/10.1103/PhysRev.47.777},
-  html={https://journals.aps.org/pr/abstract/10.1103/PhysRev.47.777},
-  pdf={example_pdf.pdf},
-  altmetric={248277},
-  dimensions={true},
-  selected={true}
-}
-
-@article{einstein1905molekularkinetischen,
-  title={{\"U}ber die von der molekularkinetischen Theorie der W{\"a}rme geforderte Bewegung von in ruhenden Fl{\"u}ssigkeiten suspendierten Teilchen},
-  author={Einstein, A.},
-  journal={Annalen der physik},
-  volume={322},
-  number={8},
-  pages={549--560},
-  year={1905},
-  publisher={Wiley Online Library}
-}
-
-@article{einstein1905movement,
-  abbr={Ann. Phys.},
-  title={Un the movement of small particles suspended in statiunary liquids required by the molecular-kinetic theory 0f heat},
-  author={Einstein, A.},
-  journal={Ann. Phys.},
-  volume={17},
-  pages={549--560},
-  year={1905}
-}
-
-@article{einstein1905electrodynamics,
-  title={On the electrodynamics of moving bodies},
-  author={Einstein, A.},
-  year={1905}
-}
-
-@book{przibram1967letters,
-  bibtex_show={true},
-  title={Letters on wave mechanics},
-  author={Einstein, Albert and Schrödinger, Erwin and Planck, Max and Lorentz, Hendrik Antoon and Przibram, Karl},
-  year={1967},
-  publisher={Vision},
-  preview={wave-mechanics.gif}
-}
+@INPROCEEDINGS{9923866,
+  author={Khairy, Mahmoud and Alawneh, Ahmad and Barnes, Aaron and Rogers, Timothy G.},
+  booktitle={2022 55th IEEE/ACM International Symposium on Microarchitecture (MICRO)}, 
+  title={SIMR: Single Instruction Multiple Request Processing for Energy-Efficient Data Center Microservices}, 
+  year={2022},
+  volume={},
+  number={},
+  pages={441-463},
+  abstract={Contemporary data center servers process thousands of similar, independent requests per minute. In the interest of programmer productivity and ease of scaling, workloads in data centers have shifted from single monolithic processes toward a micro and nanoservice software architecture. As a result, single servers are now packed with many threads executing the same, relatively small task on different data.State-of-the-art data centers run these microservices on multi-core CPUs. However, the flexibility offered by traditional CPUs comes at an energy-efficiency cost. The Multiple Instruction Multiple Data execution model misses opportunities to aggregate the similarity in contemporary microservices. We observe that the Single Instruction Multiple Thread execution model, employed by GPUs, provides better thread scaling and has the potential to reduce frontend and memory system energy consumption. However, contemporary GPUs are ill-suited for the latency-sensitive microservice space.To exploit the similarity in contemporary microservices, while maintaining acceptable latency, we propose the Request Processing Unit (RPU). The RPU combines elements of out-of-order CPUs with lockstep thread aggregation mechanisms found in GPUs to execute microservices in a Single Instruction Multiple Request (SIMR) fashion. To complement the RPU, we also propose a SIMR-aware software stack that uses novel mechanisms to batch requests based on their predicted control-flow, split batches based on predicted latency divergence and map per-request memory allocations to maximize coalescing opportunities. Our resulting RPU system processes 5. 7 × more requests/joule than multi-core CPUs, while increasing single thread latency by only 1. ×.},
+  keywords={},
+  doi={10.1109/MICRO56248.2022.00040},
+  ISSN={},
+  link={https://ieeexplore.ieee.org/document/9923866},
+  month={Oct},}
