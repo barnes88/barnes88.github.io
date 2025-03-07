@@ -657,6 +657,20 @@ footer.sticky-bottom {
             text-decoration: underline;
           }
         }
+
+        .google-scholar-badge {
+          display: inline-block;
+          vertical-align: middle;
+          transition: transform 0.2s ease;
+
+          &:hover {
+            transform: translateY(-2px);
+          }
+
+          img {
+            height: 20px;
+          }
+        }
       }
 
       .hidden {
