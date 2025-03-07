@@ -207,7 +207,7 @@
             {%- endif %}
             {%- if site.badges.google_scholar_badge %}
               {% if entry.scholar %}
-                <a href="https://scholar.google.com/scholar?cluster={{ entry.scholar }}" target="_blank" class="google-scholar-badge">
+                <a href="https://scholar.google.com/scholar?q={{ entry.title | url_encode }}" target="_blank" class="google-scholar-badge">
                   <img src="https://img.shields.io/badge/citations-{{ entry.scholar }}-blue" alt="Google Scholar citations">
                 </a>
               {% endif %}
