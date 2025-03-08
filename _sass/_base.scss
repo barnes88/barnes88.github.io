@@ -657,7 +657,7 @@ footer.sticky-bottom {
         padding-bottom: 0.5rem;
         span {
           display: inline-block;
-          color: $black-color;
+          color: var(--global-theme-color);
           height: 100%;
           padding-right: 0.5rem;
           vertical-align: middle;
