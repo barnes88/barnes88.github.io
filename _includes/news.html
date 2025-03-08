@@ -2,7 +2,7 @@
             {% if site.news != blank -%}
             {%- assign news_size = site.news | size -%}
             <div class="table-responsive" {% if site.news.scrollable and news_size > 3 %}style="max-height: 10vw"{% endif %}>
-              <table class="table table-sm table-borderless">
+              <table class="table table-sm table-borderless news-table">
               {%- assign news = site.news | reverse -%}
               {% if site.news.limit %}
               {% assign news_limit = site.news.limit %}
@@ -10,9 +10,12 @@
               {% assign news_limit = news_size %}
               {% endif %}
               {% for item in news limit: news_limit %}
-                <tr {% if forloop.index > 4 %}class="hidden-news"{% endif %}>
-                  <th scope="row">{{ item.date | date: "%b %-d, %Y" }}</th>
-                  <td>
+                <tr class="news-row {% if forloop.index > 4 %}hidden-news{% endif %}">
+                  <th class="date-cell">
+                    <div>{{ item.date | date: "%b %-d" }}</div>
+                    <div style="font-size: 0.85em; color: var(--global-text-color-light);">{{ item.date | date: "%Y" }}</div>
+                  </th>
+                  <td class="content-cell">
                     {% if item.inline -%}
                       {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
                     {%- else -%}

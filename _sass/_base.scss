@@ -875,6 +875,26 @@ pre {
 
 // News section show/hide functionality
 .news {
+  .news-table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .news-row {
+    width: 100%;
+    display: table-row;
+  }
+
+  .date-cell {
+    width: 85px;
+    vertical-align: top;
+    white-space: nowrap;
+  }
+
+  .content-cell {
+    padding-left: 10px;
+  }
+
   .hidden-news {
     display: none;
   }
