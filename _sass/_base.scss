@@ -328,6 +328,12 @@ blockquote {
 footer.fixed-bottom {
   background-color: var(--global-footer-bg-color);
   font-size: 0.75rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: transform 0.3s ease;
 
   .container {
     color: var(--global-footer-text-color);
@@ -343,6 +349,10 @@ footer.fixed-bottom {
       text-decoration: none;
     }
   }
+}
+
+footer.fixed-bottom.hide {
+  transform: translateY(100%);
 }
 
 footer.sticky-bottom {
