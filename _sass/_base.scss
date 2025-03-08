@@ -684,14 +684,14 @@ footer.sticky-bottom {
 
       .hidden {
         font-size: 0.875rem;
-        max-height: 0px;
+        max-height: 0;
+        opacity: 0;
         overflow: hidden;
         text-align: justify;
-        transition-property: 0.15s ease;
-        -moz-transition: 0.15s ease;
-        -ms-transition: 0.15s ease;
-        -o-transition: 0.15s ease;
-        transition: all 0.15s ease;
+        transform: translateY(-10px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        margin-top: 0;
+        margin-bottom: 0;
 
         p {
           line-height: 1.4em;
@@ -706,20 +706,22 @@ footer.sticky-bottom {
       }
 
       .hidden.open {
-        max-height: 100em;
-        transition-property: 0.15s ease;
-        -moz-transition: 0.15s ease;
-        -ms-transition: 0.15s ease;
-        -o-transition: 0.15s ease;
-        transition: all 0.15s ease;
+        max-height: 500px;
+        opacity: 1;
+        transform: translateY(0);
+        margin-top: 1rem;
+        margin-bottom: 1rem;
       }
 
       div.abstract.hidden {
         border: dashed 1px var(--global-bg-color);
+        border-radius: 4px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       div.abstract.hidden.open {
         border-color: var(--global-text-color);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       }
     }
   }
@@ -906,10 +908,18 @@ pre {
 
   .hidden-news {
     display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .hidden-news.show {
     display: table-row;
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 100px;
   }
 
   .news-toggle {
@@ -925,10 +935,18 @@ pre {
       font-size: 0.8rem;
       cursor: pointer;
       transition: all 0.2s ease;
+      transform: translateY(0);
 
       &:hover {
         border-color: var(--global-theme-color);
         color: var(--global-theme-color);
+        transform: translateY(-2px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      &:active {
+        transform: translateY(0);
+        box-shadow: none;
       }
     }
   }
