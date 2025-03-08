@@ -872,3 +872,35 @@ pre {
     opacity: 1;
   }
 }
+
+// News section show/hide functionality
+.news {
+  .hidden-news {
+    display: none;
+  }
+
+  .hidden-news.show {
+    display: table-row;
+  }
+
+  .news-toggle {
+    margin-top: 1rem;
+    text-align: center;
+    
+    button {
+      background-color: transparent;
+      border: 1px solid var(--global-theme-color);
+      border-radius: 4px;
+      color: var(--global-theme-color);
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: var(--global-theme-color);
+        color: var(--global-bg-color);
+      }
+    }
+  }
+}

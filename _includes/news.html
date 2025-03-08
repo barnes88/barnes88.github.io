@@ -1,4 +1,3 @@
-
           <div class="news">
             {% if site.news != blank -%}
             {%- assign news_size = site.news | size -%}
@@ -11,7 +10,7 @@
               {% assign news_limit = news_size %}
               {% endif %}
               {% for item in news limit: news_limit %}
-                <tr>
+                <tr {% if forloop.index > 4 %}class="hidden-news"{% endif %}>
                   <th scope="row">{{ item.date | date: "%b %-d, %Y" }}</th>
                   <td>
                     {% if item.inline -%}
@@ -23,8 +22,30 @@
                 </tr>
               {%- endfor %}
               </table>
+              {% if news_limit > 4 %}
+              <div class="news-toggle">
+                <button onclick="toggleNews(this)" data-text-show="Show More" data-text-hide="Show Less">
+                  Show More
+                </button>
+              </div>
+              {% endif %}
             </div>
           {%- else -%}
             <p>No news so far...</p>
           {%- endif %}
           </div>
+
+<script>
+function toggleNews(button) {
+  const hiddenNews = document.querySelectorAll('.hidden-news');
+  const isShowing = hiddenNews[0].classList.contains('show');
+  
+  hiddenNews.forEach(item => {
+    item.classList.toggle('show');
+  });
+  
+  button.textContent = isShowing ? 
+    button.getAttribute('data-text-show') : 
+    button.getAttribute('data-text-hide');
+}
+</script>
