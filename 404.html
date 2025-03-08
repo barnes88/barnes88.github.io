@@ -146,21 +146,58 @@ Last updated: March 08, 2025.
   // Footer scroll behavior
   {
     let lastScrollTop = 0;
+    let lastY = 0;
     const footer = document.querySelector('footer.fixed-bottom');
+    const minScroll = 10; // Minimum scroll distance to trigger hide/show
     
-    window.addEventListener('scroll', () => {
-      let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    // Handle both touch and mouse events
+    const handleScroll = () => {
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollDiff = Math.abs(currentScroll - lastScrollTop);
       
-      if (currentScroll > lastScrollTop) {
-        // Scrolling down
-        footer.classList.add('hide');
-      } else {
-        // Scrolling up
+      // Only trigger if we've scrolled enough
+      if (scrollDiff > minScroll) {
+        if (currentScroll > lastScrollTop) {
+          // Scrolling down
+          footer.classList.add('hide');
+        } else {
+          // Scrolling up
+          footer.classList.remove('hide');
+        }
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+      }
+    };
+
+    // Touch event handling
+    const handleTouchStart = (e) => {
+      lastY = e.touches[0].clientY;
+    };
+
+    const handleTouchMove = (e) => {
+      const currentY = e.touches[0].clientY;
+      if (Math.abs(currentY - lastY) > minScroll) {
+        if (currentY < lastY) {
+          // Swiping up (scrolling down)
+          footer.classList.add('hide');
+        } else {
+          // Swiping down (scrolling up)
+          footer.classList.remove('hide');
+        }
+        lastY = currentY;
+      }
+    };
+
+    // Add all event listeners
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    document.addEventListener('touchstart', handleTouchStart, { passive: true });
+    document.addEventListener('touchmove', handleTouchMove, { passive: true });
+
+    // Show footer when reaching bottom of page
+    window.addEventListener('scroll', () => {
+      if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight) {
         footer.classList.remove('hide');
       }
-      
-      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-    }, false);
+    }, { passive: true });
   }
 </script>
 
