@@ -636,10 +636,19 @@ footer.sticky-bottom {
           padding-top: 0.25rem;
           padding-bottom: 0.25rem;
           margin-left: 0;
+          transition: all 0.15s ease;
+          transform: translateY(0);
 
           &:hover {
             color: var(--global-theme-color);
             border-color: var(--global-theme-color);
+            transform: translateY(-2px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          }
+
+          &:active {
+            transform: translateY(0);
+            box-shadow: none;
           }
         }
       }
