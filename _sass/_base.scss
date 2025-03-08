@@ -904,22 +904,22 @@ pre {
   }
 
   .news-toggle {
-    margin-top: 1rem;
+    margin-top: 0.75rem;
     text-align: center;
     
     button {
       background-color: transparent;
-      border: 1px solid var(--global-theme-color);
-      border-radius: 4px;
-      color: var(--global-theme-color);
-      padding: 0.5rem 1rem;
-      font-size: 0.9rem;
+      border: 1px solid var(--global-text-color-light);
+      border-radius: 3px;
+      color: var(--global-text-color-light);
+      padding: 0.25rem 0.75rem;
+      font-size: 0.8rem;
       cursor: pointer;
       transition: all 0.2s ease;
 
       &:hover {
-        background-color: var(--global-theme-color);
-        color: var(--global-bg-color);
+        border-color: var(--global-theme-color);
+        color: var(--global-theme-color);
       }
     }
   }
