@@ -30,7 +30,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/github.css" media="" id="highlight_theme_light">
 
     <!-- Styles -->
-    
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="canonical" href="https://barnes88.github.io/">
     
@@ -143,77 +142,125 @@
           </div>
 
           <!-- News -->
-          <h2><a href="/news/" style="color: inherit;">news</a></h2>
-          <div class="news">
+          <h2><a href="/news/" style="color: inherit;">News</a></h2>          <div class="news">
             <div class="table-responsive">
-              <table class="table table-sm table-borderless">
+              <table class="table table-sm table-borderless news-table">
               
-                <tr>
-                  <th scope="row">Feb 24, 2025</th>
-                  <td>
+                <tr class="news-row ">
+                  <th class="date-cell">
+                    <div>Feb 24</div>
+                    <div style="font-size: 0.85em; color: var(--global-text-color-light);">2025</div>
+                  </th>
+                  <td class="content-cell">
                     Started working at Meta on the ML Systems HW/SW Codesign team
 
                   </td>
                 </tr>
-                <tr>
-                  <th scope="row">Feb 7, 2025</th>
-                  <td>
+                <tr class="news-row ">
+                  <th class="date-cell">
+                    <div>Feb 7</div>
+                    <div style="font-size: 0.85em; color: var(--global-text-color-light);">2025</div>
+                  </th>
+                  <td class="content-cell">
                     I successfully defended my thesis <a href="https://hammer.purdue.edu/articles/thesis/IMPROVING_THE_UTILIZATION_AND_PERFORMANCE_OF_SPECIALIZED_GPU_CORES/28462811?file=52615397" rel="external nofollow noopener" target="_blank"><em>Improving the Utilization and Performance of Specialized GPU Cores</em></a>
 
                   </td>
                 </tr>
-                <tr>
-                  <th scope="row">Nov 5, 2024</th>
-                  <td>
+                <tr class="news-row ">
+                  <th class="date-cell">
+                    <div>Nov 5</div>
+                    <div style="font-size: 0.85em; color: var(--global-text-color-light);">2024</div>
+                  </th>
+                  <td class="content-cell">
                     Presented “Extending GPU Ray-Tracing Units for Hierarchical Search Acceleration” at MICRO 2024 in Austin, Texas.
 
                   </td>
                 </tr>
-                <tr>
-                  <th scope="row">Aug 26, 2024</th>
-                  <td>
+                <tr class="news-row ">
+                  <th class="date-cell">
+                    <div>Aug 26</div>
+                    <div style="font-size: 0.85em; color: var(--global-text-color-light);">2024</div>
+                  </th>
+                  <td class="content-cell">
                     Started working at Meta in Sunnyvale, California
 
                   </td>
                 </tr>
-                <tr>
-                  <th scope="row">Feb 27, 2023</th>
-                  <td>
+                <tr class="news-row hidden-news">
+                  <th class="date-cell">
+                    <div>Feb 27</div>
+                    <div style="font-size: 0.85em; color: var(--global-text-color-light);">2023</div>
+                  </th>
+                  <td class="content-cell">
                     Presented “Mitigating GPU Core Partitioning Performance Effects” at HPCA 2023 in Montreal, Quebec.
 
                   </td>
                 </tr>
-                <tr>
-                  <th scope="row">Jan 8, 2023</th>
-                  <td>
+                <tr class="news-row hidden-news">
+                  <th class="date-cell">
+                    <div>Jan 8</div>
+                    <div style="font-size: 0.85em; color: var(--global-text-color-light);">2023</div>
+                  </th>
+                  <td class="content-cell">
                     Started working at AMD Research in Bellevue, Washington
 
                   </td>
                 </tr>
-                <tr>
-                  <th scope="row">May 11, 2022</th>
-                  <td>
+                <tr class="news-row hidden-news">
+                  <th class="date-cell">
+                    <div>May 11</div>
+                    <div style="font-size: 0.85em; color: var(--global-text-color-light);">2022</div>
+                  </th>
+                  <td class="content-cell">
                     Presented a poster on accelerating <a href="https://spark.apache.org/" rel="external nofollow noopener" target="_blank">Apache Spark</a> workloads using GPUs at the <a href="https://adacenter.org/" rel="external nofollow noopener" target="_blank">Applications Driving Architecture</a> Symposium in Ann Arbor, Michigan
 
                   </td>
                 </tr>
-                <tr>
-                  <th scope="row">Jun 1, 2021</th>
-                  <td>
+                <tr class="news-row hidden-news">
+                  <th class="date-cell">
+                    <div>Jun 1</div>
+                    <div style="font-size: 0.85em; color: var(--global-text-color-light);">2021</div>
+                  </th>
+                  <td class="content-cell">
                     Started working on the Cloud Graphics and Virtual Desktop Infrastructure Team at Intel in Hillsboro, Oregon (remote).
 
                   </td>
                 </tr>
-                <tr>
-                  <th scope="row">May 20, 2019</th>
-                  <td>
+                <tr class="news-row hidden-news">
+                  <th class="date-cell">
+                    <div>May 20</div>
+                    <div style="font-size: 0.85em; color: var(--global-text-color-light);">2019</div>
+                  </th>
+                  <td class="content-cell">
                     Started working at the CPU Verification Team at Arm in Austin, Texas
 
                   </td>
                 </tr>
               </table>
+              
+              <div class="news-toggle">
+                <button onclick="toggleNews(this)" data-text-show="Show More" data-text-hide="Show Less">
+                  Show More
+                </button>
+              </div>
+              
             </div>
           </div>
+
+<script>
+function toggleNews(button) {
+  const hiddenNews = document.querySelectorAll('.hidden-news');
+  const isShowing = hiddenNews[0].classList.contains('show');
+  
+  hiddenNews.forEach(item => {
+    item.classList.toggle('show');
+  });
+  
+  button.textContent = isShowing ? 
+    button.getAttribute('data-text-show') : 
+    button.getAttribute('data-text-hide');
+}
+</script>
 
 
           <!-- Latest posts -->
@@ -248,7 +295,7 @@
     <footer class="fixed-bottom">
       <div class="container mt-0">
         © Copyright 2025 Aaron  Barnes. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme.
-Last updated: March 07, 2025.
+Last updated: March 08, 2025.
       </div>
     </footer>
 
@@ -273,7 +320,6 @@ Last updated: March 07, 2025.
 
     
   <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
-  <script async src="https://badge.dimensions.ai/badge.js"></script>
 
     <!-- MathJax -->
   <script type="text/javascript">
