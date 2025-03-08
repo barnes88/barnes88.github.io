@@ -175,6 +175,28 @@ Last updated: March 08, 2025.
   <script defer src="/assets/js/common.js"></script>
   <script defer src="/assets/js/copy_code.js" type="text/javascript"></script>
 
+<script>
+  // Footer scroll behavior
+  {
+    let lastScrollTop = 0;
+    const footer = document.querySelector('footer.fixed-bottom');
+    
+    window.addEventListener('scroll', () => {
+      let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      
+      if (currentScroll > lastScrollTop) {
+        // Scrolling down
+        footer.classList.add('hide');
+      } else {
+        // Scrolling up
+        footer.classList.remove('hide');
+      }
+      
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    }, false);
+  }
+</script>
+
     
   <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
 
